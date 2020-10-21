@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Teams Integration";
+}
+
+<div>
+    <label>Email:</label>
+    <input type="email" id="email" name="email" class="form form-control" required>
+
+    <label>Password:</label>
+    <input type="password" id="password" name="password" class="form form-control" required><br />
+
+    <input type="submit" id="login" name="login" value="Enviar" onclick="LoginTeams()" class="btn btn-success" style="width:150vw" />
+</div>
+
+<script>
+    function LoginTeams() {
+        var email = $('#email').val();
+        var password = $('#password').val();
+        if (email === ''|| password === '')
+            return false;
+
+        $.ajax({
+            type: "POST",
+            url: "/Home/LoginTeams",
+            data: {email: email, password: password},
+            datatype: "Json",
+            success: function (data) {
+                console.log(data.Resultado);
+            }
+        });
+    }
+</script>
