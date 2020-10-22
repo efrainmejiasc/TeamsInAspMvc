@@ -8,6 +8,8 @@ namespace TeamsInAspMvc.Commons.Interfaces
 {
     public interface IHttpMethod
     {
-       Task<bool> GetTokenAccess(string email, string password);
+        Task<bool> Login(string email, string password);
+
+        bool GetTokenAccess(string email, string password);
     }
 }

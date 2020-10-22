@@ -28,7 +28,7 @@ namespace TeamsInAspMvc.Controllers
         {
             var respuesta = new Respuesta()
             {
-                Resultado = await httpMethod.GetTokenAccess(email,password)
+                Resultado = await httpMethod.Login(email, password)
             };
 
            return Json(respuesta);
